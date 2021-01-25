@@ -74,3 +74,51 @@ rm 'file.html'
 
 2.4. Перемещение файлов.
 
+Командой mkdir была создана директория lib. Далее был добавлен файл hello.txt. Это было отмечено коммитами.
+Файл hello.txt перемещён в lib командой "git mv hello.txt lib". Результат:
+git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    hello.txt -> lib/hello.txt
+Был добавлен коммит "hello.txt moved".
+
+3. История коммитов.
+
+Поскольку команда git log может использоваться с различными аргументами и опциями, для демонстрации было выбрано несколько. А именно, опция --pretty, --name-only и --oneline.
+
+3.1. git log --pretty выводит информацию обо всех коммитах (если не указано ограничений) в следующем формате:
+commit 044f346ade474b96bc82a7e0453ac01b5671b7d4
+Author: Galina Sh <gshel.work@gmail.com>
+Date:   Thu Jan 21 08:27:07 2021 +0700
+
+    files for ignore added
+
+Мы можем увидеть коммит, его автора и дату.
+
+3.2. git log --name-only показывает аналогичную информацию, но после информации о коммите выводит список измененых файлов. Например:
+commit dfad1833692bb78279ba4f2ff7f3ce41f9ddedf6
+Author: Galina Sh <gshel.work@gmail.com>
+Date:   Thu Jan 21 07:29:35 2021 +0700
+
+    file added .gitignore
+
+.gitignore
+
+Здесь мы видим, что был изменен файл .gitignore.
+
+3.3. git log --oneline выводит сокращенную информацию о коммитах: только сам коммит и только несколько символов SHA-1 чек-суммы вместо всех 40. В данном случае:
+a84487f (HEAD -> master) item 2 has been added to the report
+44c7d30 hello.txt moved
+f154896 changed hello.txt
+9f3a1a6 made hello.txt and lib
+9884a01 file delete file.html
+e19c766 file changed .gitignore
+044f346 files for ignore added
+dfad183 file added .gitignore
+00803c8 added a report on the first task
+63d61e5 created a report file 
+
+Возврат из истории коммитов к работе в командной строке выполняется нажатием q (Windows 10).
+
+4. 
