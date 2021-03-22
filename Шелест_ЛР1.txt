@@ -233,3 +233,25 @@ Switched to branch 'master'
 
 Слияние веток выполняется командой "git merge <имя включаемой ветки>", которая выполняется в той ветке, в которую необходимо включить изменения.
 Пример. Включим в ветку master ветку new_branch_1. Для этого, находясь в ветке master, применим команду:
+$git merge new_branch_1
+Merge made by the 'recursive' strategy.
+
+5.4. Удаление ветки.
+
+Удаление ветки выполняется следующей командой:
+$git branch -d new_branch_1
+Deleted branch new_branch_1 (was 720a7a5).
+
+5.5. Решение конфликтов.
+
+Были созданы два конфликта: на ветках branch_1 и branch_2 файлы 1.txt и 2.txt получили разные изменения. При попытке слияния веток:
+$git merge branch_2
+
+Получаем результат:
+CONFLICT (add/add): Merge conflict in 2.txt
+Auto-merging 2.txt
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Решить конфликты можно двумя способами. Первый - вручную привести файл к необходимому виду. Проделаем это с файлом 2.txt: при открытии увидим, что обозначено проблемное место.
